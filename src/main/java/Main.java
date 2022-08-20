@@ -5,26 +5,27 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
+    private final static String MOVIES_FILE = "src/main/resources/movies.json";
 
     public static void main(String[] args) {
 
         final ObjectMapper mapper = new ObjectMapper();
-        MovieLibrary movieLibrary;
+        final MovieLibrary movieLibrary;
         try {
-            movieLibrary = mapper.readValue(new File("src/main/resources/movies.json"), MovieLibrary.class);
+            movieLibrary = mapper.readValue(new File(MOVIES_FILE), MovieLibrary.class);
 
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
         }
 
-        Scanner scanner = new Scanner(System.in);
+        final Scanner scanner = new Scanner(System.in);
 
         while (true) {
             int menuOption = provideMenuOption(scanner);
             switch (menuOption) {
-                case 1 -> movieLibrary.showMoviesFromYear(scanner.nextInt(), scanner.nextInt());
+                case 1 -> movieLibrary.showMoviesFromYear(scanner);
                 case 2 -> movieLibrary.showInfoRandomMovie();
-                case 3 -> movieLibrary.showMoviesWithActor();
+                case 3 -> movieLibrary.showMoviesWithActor(scanner);
                 case 4 -> {
                     scanner.close();
                     System.exit(0);
@@ -46,4 +47,3 @@ public class Main {
         return scanner.nextInt();
     }
 }
-

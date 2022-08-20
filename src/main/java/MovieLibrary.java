@@ -1,39 +1,70 @@
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class MovieLibrary {
 
-    private ArrayList<Movie> movies;
+    private List<Movie> movies;
 
-    public ArrayList<Movie> getMovies() {
+    public List<Movie> getMovies() {
         return movies;
     }
 
-    public void setMovies(ArrayList<Movie> movies) {
-        this.movies = movies;
-    }
+    public void showMoviesFromYear(Scanner scanner) {
 
-    public void showMoviesFromYear(int before, int after) {
-
+        System.out.println("od: ");
+        int before = scanner.nextInt();
+        System.out.println("do: ");
+        int after = scanner.nextInt();
         StringBuilder sb = new StringBuilder();
-        List<Movie> moviesFromYear = movies.stream()
-                .filter(movie -> movie.getDate() > before && movie.getDate() < after)
-                .toList();
 
-        sb.append("Filmy z lat ").append(before).append(" ").append(after).append(" : ");
+        final List<Movie> moviesFromYear = new ArrayList<>();
+        movies.stream()
+                .filter(movie -> movie.getDate() >= before && movie.getDate() <= after)
+                .forEach(moviesFromYear::add);
 
-        for (Movie movie : moviesFromYear) {
-            sb.append(movie.getTitle());
-            sb.append(", ");
+        sb.append("Filmy z lat ").append(before).append(" - ").append(after).append(": ");
+
+        if(moviesFromYear.size() == 0){
+            System.out.println("Żaden z filmów nie spełnia kryteriów wyszukiwania. \n");
+            return;
         }
+
+        for (int i = 0; i < moviesFromYear.size(); i++) {
+            sb.append(moviesFromYear.get(i).getTitle());
+            if (i != moviesFromYear.size() - 1) {
+                sb.append(", ");
+            }
+        }
+
         System.out.println(sb);
+        System.out.println();
     }
 
     public void showInfoRandomMovie() {
+        final Random rand = new Random();
+        final Movie randomMovie = movies.get(rand.nextInt(movies.size()));
 
+        System.out.println(randomMovie.toString());
+        System.out.println();
     }
 
-    public void showMoviesWithActor() {
+    public void showMoviesWithActor(Scanner scanner) {
 
+        System.out.println("Imię: ");
+        String name = scanner.next();
+        System.out.println("Nazwisko: ");
+        String lastName = scanner.next();
+
+        for (Movie movie : movies) {
+            for (Actor actor : movie.getActors()) {
+                if (actor.getFirstName().equalsIgnoreCase(name) && actor.getLastName().equalsIgnoreCase(lastName)) {
+                    System.out.println(movie.getTitle());
+                }
+            }
+        }
+        System.out.println();
     }
 }
