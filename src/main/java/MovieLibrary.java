@@ -1,10 +1,15 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovieLibrary {
 
-    private final List<Movie> movies;
+    private ArrayList<Movie> movies;
 
-    public MovieLibrary(List<Movie> movies) {
+    public ArrayList<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(ArrayList<Movie> movies) {
         this.movies = movies;
     }
 
@@ -24,17 +29,11 @@ public class MovieLibrary {
         System.out.println(sb);
     }
 
-    public void showInfoRandomMovie(){
+    public void showInfoRandomMovie() {
 
     }
 
-    public void showMoviesWithActor(){
+    public void showMoviesWithActor() {
 
     }
 }
-
-//        Movie[] objects = moviesFromYear.toArray();
-//
-//        for (int i = 0; i < objects.length; i++) {
-//
-//        }

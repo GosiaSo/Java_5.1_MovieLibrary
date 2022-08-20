@@ -45,6 +45,94 @@
           "lastName":"Paltrow"
         }
       ]
+    },
+    {
+      "title":"Avatar",
+      "director":{
+        "firstName":"James",
+        "lastName":"Cameron"
+      },
+      "genre":"FANTASY",
+      "date":"2009",
+      "actors":[
+        {
+          "firstName":"Zoe",
+          "lastName":"Saldana"
+        },
+        {
+          "firstName":"Sigourney",
+          "lastName":"Weaver"
+        },
+        {
+          "firstName":"Stephen",
+          "lastName":"Lang"
+        }
+      ]
+    },
+    {
+      "title":"I Am Legend",
+      "director":{
+        "firstName":"Francis",
+        "lastName":"Lawrence"
+      },
+      "genre":"DRAMA",
+      "date":"2007",
+      "actors":[
+        {
+          "firstName":"Will",
+          "lastName":"Smith"
+        },
+        {
+          "firstName":"Alice",
+          "lastName":"Braga"
+        },
+        {
+          "firstName":"Charlie",
+          "lastName":"Tahan"
+        }
+      ]
+    },
+    {
+      "title":"The Avengers",
+      "director":{
+        "firstName":"Joss",
+        "lastName":"Whedon"
+      },
+      "genre":"ACTION",
+      "date":"2012",
+      "actors":[
+        {
+          "firstName":"Robert",
+          "lastName":"Downey Jr."
+        },
+        {
+          "firstName":"Chris",
+          "lastName":"Evans"
+        }
+      ]
+    },
+    {
+      "title":"Interstellar",
+      "director":{
+        "firstName":"Christopher",
+        "lastName":"Nolan"
+      },
+      "genre":"DRAMA",
+      "date":"2014",
+      "actors":[
+        {
+          "firstName":"Ellen",
+          "lastName":"Burstyn"
+        },
+        {
+          "firstName":"Matthew",
+          "lastName":"McConaughey"
+        },
+        {
+          "firstName":"Mackenzie",
+          "lastName":"Foy"
+        }
+      ]
     }
   ]
 }
